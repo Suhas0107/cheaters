@@ -1,0 +1,40 @@
+N = input('Enter the number of samples: ');
+x = input('Enter the samples');
+l = length(x);
+j = sqrt(-1);
+x1 = [x, zeros(1,N-l)];
+X = zeros(1,N);
+tic 
+for k=0:1:N-1
+    for n=0:1:N-1
+        X(k+1) = X(k+1) + x1(n+1)*exp(-2*pi*j*n*k/N);
+    end
+end
+toc;
+disp(X);
+Y = abs(X);
+a = angle(X)*(180/pi);
+subplot(2,1,1)
+stem(Y);
+title('magnitude');
+xlabel('time');
+ylabel('gain');
+subplot(2,1,2)
+stem(a);
+
+
+
+N = input('enter the value of N: ');
+x = input('enter the samples: ');
+tic;
+X = dftmtx(N)*transpose(x);
+toc;
+disp(X);
+
+
+N = input('enter the value of N: ');
+x = input('enter the samples: ');
+tic;
+X = fft(x,N);
+toc;
+disp(X);
