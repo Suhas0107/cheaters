@@ -1,0 +1,32 @@
+x = [1,2,3,4];
+h = [1,2,3];
+c = conv(x,h);
+n1 = length(x);
+n2 = length(h);
+X = [x zeros(1,n2)];
+H = [h zeros(1,n1)];
+Y = zeros(1, n1+n2-1);
+for i=1:n1+n2-1
+    Y(i) = 0;
+    for j=1:i
+        Y(i) = Y(i) + X(j)*H(i-j+1);
+    end
+end
+disp(Y);
+disp(c);
+
+
+
+a = [1,1,1];
+b = [1,2,3];
+c = [4,5,6];
+y1 = conv(a,conv(b,c));
+y2 = conv(conv(a,b),c);
+disp(y1);
+disp(y2);
+disp("Associative property");
+y3 = conv(a,b+c);
+y4 = conv(a,b) + conv(a,c);
+disp(y3);
+disp(y4);
+disp("Distributive property");
