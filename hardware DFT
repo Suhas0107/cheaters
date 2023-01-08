@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <math.h>
+#define pi 3.14159
+
+int main()
+{
+
+int x [4] = {1, 2, 3, 4},i,j;
+
+for (j=0; j<4; j++) 
+{ 
+float realsum = 0, imgsum =0;
+float cospart = 0, sinpart = 0; 
+
+for(i=0; i<4; i++) {
+cospart = cos((2*pi*j*i)/4);
+sinpart = sin((2*pi*j*i)/4);
+realsum = realsum + x[i]*cospart;
+imgsum = imgsum - x[i]*sinpart;
+}
+
+printf("%f %fi \n",realsum,imgsum);
+}
+return 0;
+}
