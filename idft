@@ -1,0 +1,25 @@
+N = input('enter the value of N: ');
+X = input('enter the samples: ');
+tic;
+x = ifft(X,N);
+toc;
+disp(X);
+
+
+
+N = input("enter the value of N ");
+X = input("enter the sequence ");
+l = length(X);
+j = sqrt(-1);
+x = zeros(1, N);
+for n=0:1:N-1
+    for k=0:1:N-1
+        x(n+1)= x(n+1)+ X(k+1)*exp(j*2*pi*n*k/N);
+    end
+    x(n+1) = x(n+1)/N;
+end
+disp(abs(x));
+stem(x);
+xlabel('no of samples');
+ylabel('values of x');
+title('IDFT');
