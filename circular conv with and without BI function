@@ -1,0 +1,27 @@
+a = [1,3,5,3];
+b = [2,3,1];
+l1 = length(a);
+l2 = length(b);
+n = max(l1,l2);
+if l1>l2
+    b = [b zeros(1,l1-l2)];
+else
+    a = [a zeros(1,l2-l1)];
+end
+a1 = transpose(a);
+b1 = transpose(b);
+y = a1;
+for n = 1:1:(n-1)
+    a1 = circshift(a1,1);
+    y = [y,a1];
+    disp(y);
+end
+y = y*b1;
+disp(transpose(y));
+plot(y);
+
+
+
+
+
+        
