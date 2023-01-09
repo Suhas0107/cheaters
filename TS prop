@@ -1,0 +1,21 @@
+clc;
+close all;
+x=[1,2,3,4];
+N=input('Enter the num of Samples');
+m=input("Enter the no of shifts");
+X=fft(x,N);
+w1=exp(-1i*2*pi*m);
+Y1=X*w1;
+disp('Y1 is');
+disp(Y1);
+
+y=circshift(x,m);
+Y2=fft(y,N);
+disp('Y2 is');
+disp(Y2);
+
+if (Y1 ~=Y2)
+    disp('time shift property  verified');
+else
+    disp('time shift property not verified');
+end
