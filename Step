@@ -1,0 +1,12 @@
+y = input("Enter numerator coefficients: ");
+x = input("Enter denominator coefficients: ");
+N = input("Enter th number of samples: ");
+u = ones(1,N);
+h = filter(y,x,u);
+disp("The step response is");
+disp(h);
+n = 0:1:N-1;
+subplot(2,1,1);
+stem(n,u);
+subplot(2,1,2);
+stem(n,h);
